@@ -1,0 +1,43 @@
+<div>
+  <h4>チャット</h1>
+  <div class="panel panel-default">
+    <div class="panel-heading">サンプルチャット</div>
+    <div classs="panel-body">
+      <table class="table table-borderd table-striped">
+        <tbody>
+          <tr ng-repeat="data in messageData">
+            <th class="text-nowrap" style="width: 50px;">{{ data.value.user }}</th>
+            <td>
+              <div>
+                {{ data.value.message }}
+                <button class="btn btn-danger pull-right" ng-click="removeMessage($index)">削除</button>
+              </div>
+            </td>
+           </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <label>メッセージの入力</label>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="col-lg-4">
+              <input type="text" class="form-control" ng-model="user" placeholder="user name" />
+            </div>
+            <div class="input-group col-lg-8">
+              <input type="text" class="form-control" ng-model="message" placeholder="message ..." />
+              <span class="input-group-btn">
+                <button class="btn btn-primary" ng-disabled="canClickSendMessage()" ng-click="sendMessage()">送信</button>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
